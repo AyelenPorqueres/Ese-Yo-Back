@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMultimediaDto } from './dto/create-multimedia.dto';
-import { UpdateMultimediaDto } from './dto/update-multimedia.dto';
+import { IMultimedia } from './model/IMultimedia';
 
 @Injectable()
 export class MultimediaService {
-  create(createMultimediaDto: CreateMultimediaDto) {
+  create(IMultimedia: IMultimedia) {
     return 'This action adds a new multimedia';
   }
 
@@ -16,7 +15,7 @@ export class MultimediaService {
     return `This action returns a #${id} multimedia`;
   }
 
-  update(id: number, updateMultimediaDto: UpdateMultimediaDto) {
+  update(id: number, IMultimedia: IMultimedia) {
     return `This action updates a #${id} multimedia`;
   }
 

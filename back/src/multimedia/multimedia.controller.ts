@@ -1,15 +1,14 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { MultimediaService } from './multimedia.service';
-import { CreateMultimediaDto } from './dto/create-multimedia.dto';
-import { UpdateMultimediaDto } from './dto/update-multimedia.dto';
+import { IMultimedia } from './model/IMultimedia';
 
 @Controller('multimedia')
 export class MultimediaController {
   constructor(private readonly multimediaService: MultimediaService) {}
 
   @Post()
-  create(@Body() createMultimediaDto: CreateMultimediaDto) {
-    return this.multimediaService.create(createMultimediaDto);
+  create(@Body() IMultimedia: IMultimedia) {
+    return this.multimediaService.create(IMultimedia);
   }
 
   @Get()
@@ -23,8 +22,8 @@ export class MultimediaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMultimediaDto: UpdateMultimediaDto) {
-    return this.multimediaService.update(+id, updateMultimediaDto);
+  update(@Param('id') id: string, @Body() IMultimedia: IMultimedia) {
+    return this.multimediaService.update(+id, IMultimedia);
   }
 
   @Delete(':id')
