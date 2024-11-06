@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MultimediaModule } from './multimedia/multimedia.module';
+import { CampaniaModule } from './campania/campania.module';
 
 
 @Module({
@@ -12,13 +13,14 @@ import { MultimediaModule } from './multimedia/multimedia.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root123',
+      password: 'root',
       database: 'eseyoDB',
-      synchronize: false,
+      synchronize: true,
       entities: ["dist/**/**.entity{.ts,.js}"],
       logging: 'all',
     }),
-    MultimediaModule
+    MultimediaModule,
+    CampaniaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
