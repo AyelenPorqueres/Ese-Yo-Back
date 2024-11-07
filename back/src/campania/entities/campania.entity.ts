@@ -1,47 +1,50 @@
-import { Column, PrimaryGeneratedColumn, Entity, ManyToOne } from "typeorm";
+import { Multimedia } from "src/multimedia/entities/multimedia.entity";
+import { Column, PrimaryGeneratedColumn, Entity, ManyToOne, OneToMany } from "typeorm";
 
-@Entity('campania')
+@Entity('campanias')
 export class Campania {
   @PrimaryGeneratedColumn({
     type: 'int',
   })
-  private id: number;
+  public id: number;
 
   @Column({
     name: 'titulo',
     type: 'varchar',
 
   })
-  private titulo: string;
+  public titulo: string;
 
   @Column({
     name: 'subTitulo',
     type: 'varchar',
 
   })
-  private subTitulo: string;
+  public subTitulo: string;
 
   @Column({
     name: 'fecha',
     type: 'varchar',
 
   })
-  private fecha: string;
+  public fecha: string;
 
   @Column({
     name: 'status',
     type: 'tinyint',
 
   })
-  private status: number;
+  public status: number;
 
   @Column({
     name: 'cuerpo',
     type: 'varchar',
 
   })
-  private cuerpo: string;
+  public cuerpo: string;
 
+  @OneToMany(() => Multimedia, (multimedia) => multimedia.campania)
+  public multimedias: Multimedia[];
 
   constructor(titulo: string, subTitulo: string, fecha: string, status: number, cuerpo: string) {
     this.titulo = titulo;
