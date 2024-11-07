@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MultimediaModule } from './multimedia/multimedia.module';
 import { CampaniaModule } from './campania/campania.module';
+import { EquipoModule } from './equipo/equipo.module';
 
 
 @Module({
@@ -14,13 +15,14 @@ import { CampaniaModule } from './campania/campania.module';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'eseyoDB',
+      database: 'eseyodb',
       synchronize: true,
       entities: ["dist/**/**.entity{.ts,.js}"],
       logging: 'all',
     }),
     MultimediaModule,
     CampaniaModule,
+    EquipoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

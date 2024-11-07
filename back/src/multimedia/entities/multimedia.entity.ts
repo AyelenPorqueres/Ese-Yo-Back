@@ -1,7 +1,7 @@
 import { Campania } from "src/campania/entities/campania.entity";
 import { Column, PrimaryGeneratedColumn, Entity, ManyToOne, JoinColumn } from "typeorm";
 
-@Entity('multimedia')
+@Entity('multimedias')
 export class Multimedia {
   @PrimaryGeneratedColumn({
     name: 'id',
@@ -14,7 +14,7 @@ export class Multimedia {
     type: 'varchar',
     precision: 500,
   })
-  private linkMultimedia: string;
+  public linkMultimedia: string;
 
   @ManyToOne(() => Campania, (campania) => campania.multimedias)
   @JoinColumn({
