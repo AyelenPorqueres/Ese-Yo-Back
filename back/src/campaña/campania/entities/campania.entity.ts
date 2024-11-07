@@ -1,12 +1,11 @@
-import { Multimedia } from "src/multimedia/entities/multimedia.entity";
-import { Column, PrimaryGeneratedColumn, Entity, ManyToOne, OneToMany } from "typeorm";
+import { Column, PrimaryGeneratedColumn, Entity, ManyToOne } from "typeorm";
 
 @Entity('campania')
 export class Campania {
   @PrimaryGeneratedColumn({
     type: 'int',
   })
-  public id: number;
+  private id: number;
 
   @Column({
     name: 'titulo',
@@ -42,10 +41,6 @@ export class Campania {
 
   })
   private cuerpo: string;
-
-  @OneToMany(() => Multimedia, (multimedia) => multimedia.campania)
-  public multimedias: Multimedia[];
-
 
 
   constructor(titulo: string, subTitulo: string, fecha: string, status: number, cuerpo: string) {
