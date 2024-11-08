@@ -5,17 +5,19 @@ import { AppService } from './app.service';
 import { MultimediaModule } from './multimedia/multimedia.module';
 import { CampaniaModule } from './campania/campania.module';
 import { EquipoModule } from './equipo/equipo.module';
+import { ConfigModule } from '@nestjs/config';
 
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'eseyodb',
+      type: "mysql",
+      host: process.env.DB_TYPE,
+      port: Number(process.env.DB_TYPE),
+      username: process.env.DB_TYPE,
+      password: process.env.DB_TYPE,
+      database: process.env.DB_TYPE,
       synchronize: true,
       entities: ["dist/**/**.entity{.ts,.js}"],
       logging: 'all',
