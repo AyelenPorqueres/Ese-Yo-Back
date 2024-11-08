@@ -1,26 +1,26 @@
 import { Multimedia } from "src/multimedia/entities/multimedia.entity";
 import { Column, PrimaryGeneratedColumn, Entity, ManyToOne, OneToMany } from "typeorm";
 
-@Entity('campanias')
-export class Campania {
+@Entity('acciones')
+export class Acciones {
   @PrimaryGeneratedColumn({
     type: 'int',
   })
   public id: number;
 
   @Column({
-    name: 'titulo',
+    name: 'lugar',
     type: 'varchar',
 
   })
-  public titulo: string;
+  public lugar: string;
 
   @Column({
-    name: 'subTitulo',
+    name: 'descripcion',
     type: 'varchar',
 
   })
-  public subTitulo: string;
+  public descripcion: string;
 
   @Column({
     name: 'fecha',
@@ -43,12 +43,12 @@ export class Campania {
   })
   public cuerpo: string;
 
-  @OneToMany(() => Multimedia, (multimedia) => multimedia.campania)
+  @OneToMany(() => Multimedia, (multimedia) => multimedia.acciones)
   public multimedias: Multimedia[];
 
-  constructor(titulo: string, subTitulo: string, fecha: string, status: number, cuerpo: string) {
-    this.titulo = titulo;
-    this.subTitulo = subTitulo;
+  constructor(lugar: string, descripcion: string, fecha: string, status: number, cuerpo: string) {
+    this.lugar = lugar;
+    this.descripcion = descripcion;
     this.fecha = fecha;
     this.status = status;
     this.cuerpo = cuerpo;

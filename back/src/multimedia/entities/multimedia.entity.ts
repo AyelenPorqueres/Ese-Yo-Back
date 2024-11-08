@@ -1,4 +1,4 @@
-import { Campania } from "src/campania/entities/campania.entity";
+import { Acciones } from "src/acciones/entities/acciones.entity";
 import { Column, PrimaryGeneratedColumn, Entity, ManyToOne, JoinColumn } from "typeorm";
 
 @Entity('multimedias')
@@ -16,12 +16,12 @@ export class Multimedia {
   })
   public linkMultimedia: string;
 
-  @ManyToOne(() => Campania, (campania) => campania.multimedias)
+  @ManyToOne(() => Acciones, (acciones) => acciones.multimedias)
   @JoinColumn({
-    name: 'idCampania',
-    foreignKeyConstraintName: 'FK_campaniaMultimedia',
+    name: 'idAcciones',
+    foreignKeyConstraintName: 'FK_accionesMultimedia',
   })
-  public campania: Campania;
+  public acciones: Acciones;
 
 
   constructor(id: number, linkMultimedia: string) {

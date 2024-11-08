@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MultimediaModule } from './multimedia/multimedia.module';
-import { CampaniaModule } from './campania/campania.module';
+import { AccionesModule } from './acciones/acciones.module';
 import { EquipoModule } from './equipo/equipo.module';
 
 
@@ -21,7 +21,7 @@ import { EquipoModule } from './equipo/equipo.module';
       logging: 'all',
     }),
     MultimediaModule,
-    CampaniaModule,
+    AccionesModule,
     EquipoModule,
   ],
   controllers: [AppController],
