@@ -1,7 +1,7 @@
-export class ICampania {
+export class IAcciones {
   id:number;
-  titulo:string;
-  subTitulo:string;
+  lugar:string;
+  descripcion:string;
   fecha:string;
   status:number;
   cuerpo:string;
