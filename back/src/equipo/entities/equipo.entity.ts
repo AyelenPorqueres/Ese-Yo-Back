@@ -1,4 +1,3 @@
-import { Multimedia } from "src/multimedia/entities/multimedia.entity";
 import { Column, PrimaryGeneratedColumn, Entity, ManyToOne, OneToMany } from "typeorm";
 
 @Entity('equipo')
@@ -24,7 +23,7 @@ export class Equipo {
 
     @Column({
         name: 'descripcionTrabajo',
-        type: 'varchar',
+        type: 'text',
 
     })
     public descripcionTrabajo: string;

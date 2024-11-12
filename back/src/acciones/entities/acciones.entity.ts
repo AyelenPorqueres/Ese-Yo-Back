@@ -38,7 +38,7 @@ export class Acciones {
 
   @Column({
     name: 'cuerpo',
-    type: 'varchar',
+    type: 'text',
 
   })
   public cuerpo: string;
