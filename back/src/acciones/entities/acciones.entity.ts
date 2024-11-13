@@ -10,21 +10,21 @@ export class Acciones {
 
   @Column({
     name: 'lugar',
-    type: 'varchar',
+    type: 'text',
 
   })
   public lugar: string;
 
   @Column({
     name: 'descripcion',
-    type: 'varchar',
+    type: 'text',
 
   })
   public descripcion: string;
 
   @Column({
     name: 'fecha',
-    type: 'varchar',
+    type: 'text',
 
   })
   public fecha: string;
@@ -38,7 +38,7 @@ export class Acciones {
 
   @Column({
     name: 'cuerpo',
-    type: 'varchar',
+    type: 'text',
 
   })
   public cuerpo: string;
@@ -46,12 +46,68 @@ export class Acciones {
   @OneToMany(() => Multimedia, (multimedia) => multimedia.acciones)
   public multimedias: Multimedia[];
 
-  constructor(lugar: string, descripcion: string, fecha: string, status: number, cuerpo: string) {
+  constructor(lugar: string, descripcion: string, fecha: string, status: number, cuerpo: string, multimedias:Multimedia[]) {
     this.lugar = lugar;
     this.descripcion = descripcion;
     this.fecha = fecha;
     this.status = status;
     this.cuerpo = cuerpo;
+    this.multimedias=multimedias;
   }
 
+  public getId(): number {
+    return this.id;
+  }
+
+  public setId(id: number): void {
+    this.id = id;
+  }
+
+  public getLugar(): string {
+    return this.lugar;
+  }
+
+  public setLugar(lugar: string): void {
+    this.lugar = lugar;
+  }
+
+  public getDescripcion(): string {
+    return this.descripcion;
+  }
+
+  public setDescripcion(descripcion: string): void {
+    this.descripcion = descripcion;
+  }
+
+  public getFecha(): string {
+    return this.fecha;
+  }
+
+  public setFecha(fecha: string): void {
+    this.fecha = fecha;
+  }
+
+  public getStatus(): number {
+    return this.status;
+  }
+
+  public setStatus(status: number): void {
+    this.status = status;
+  }
+
+  public getCuerpo(): string {
+    return this.cuerpo;
+  }
+
+  public setCuerpo(cuerpo: string): void {
+    this.cuerpo = cuerpo;
+  }
+
+  public getMultimedias(): Multimedia[] {
+    return this.multimedias;
+  }
+
+  public setMultimedias(multimedias: Multimedia[]): void {
+    this.multimedias = multimedias;
+  }
 }
