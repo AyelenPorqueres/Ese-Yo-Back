@@ -6,6 +6,7 @@ import { MultimediaModule } from './multimedia/multimedia.module';
 import { AccionesModule } from './acciones/acciones.module';
 import { EquipoModule } from './equipo/equipo.module';
 import { ConfigModule } from '@nestjs/config';
+import { ImageModule } from './imagen/image.module';
 
 
 @Module({
@@ -18,13 +19,14 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      synchronize: true,
+      synchronize: false,
       entities: ["dist/**/**.entity{.ts,.js}"],
       logging: 'all',
     }),
     MultimediaModule,
     AccionesModule,
     EquipoModule,
+    ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
