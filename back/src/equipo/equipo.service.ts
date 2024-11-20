@@ -1,25 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { IEquipo } from './model/iEquipo';
+import { Equipo } from './entities/equipo.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class EquipoService {
-  create(createEquipoDto: IEquipo) {
-    return 'This action adds a new equipo';
+
+  constructor(
+    @InjectRepository(Equipo)
+    private readonly equipoRepository: Repository<Equipo>,
+  ){}
+
+  async findAll():Promise<Equipo[]> {
+    return await this.equipoRepository.find();
   }
 
-  findAll() {
-    return `This action returns all equipo`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} equipo`;
-  }
-
-  update(id: number, updateEquipoDto: IEquipo) {
-    return `This action updates a #${id} equipo`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} equipo`;
-  }
 }
