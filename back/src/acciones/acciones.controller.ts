@@ -8,7 +8,7 @@ import { Acciones } from './entities/acciones.entity';
 export class AccionesController {
   constructor(private readonly accionesService: AccionesService) {}
     /**
-     * Debuelve todas las acciones guardadas en la base de datos
+     * Devuelve todas las acciones guardadas en la base de datos
      * @returns Arreglo de Acciones
      */
     @Get('')
