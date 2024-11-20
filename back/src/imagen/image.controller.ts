@@ -3,7 +3,6 @@
 import { Controller, Post, UploadedFile, UseInterceptors, BadRequestException } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ImageService } from './image.service';
-import { Image } from './entities/imagen.entity';
 
 @Controller('images')
 export class ImageController {
@@ -21,7 +20,7 @@ export class ImageController {
       }
     },
   }))
-  async uploadImage(@UploadedFile() file: Express.Multer.File): Promise<Image> {
+  async uploadImage(@UploadedFile() file: Express.Multer.File): Promise<string> {
     if (!file) {
       throw new BadRequestException('No se ha enviado ningún archivo.');
     }

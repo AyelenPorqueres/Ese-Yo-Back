@@ -7,10 +7,16 @@ import { AccionesModule } from './acciones/acciones.module';
 import { EquipoModule } from './equipo/equipo.module';
 import { ConfigModule } from '@nestjs/config';
 import { ImageModule } from './imagen/image.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'), // Servir la carpeta de uploads
+      serveRoot: '/uploads', // URL de acceso, por ejemplo: http://localhost:8080/uploads/filename
+    }),
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: "mysql",
